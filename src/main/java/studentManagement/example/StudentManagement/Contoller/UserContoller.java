@@ -1,0 +1,40 @@
+package studentManagement.example.StudentManagement.Contoller;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import studentManagement.example.StudentManagement.Service.Userservice;
+import studentManagement.example.StudentManagement.entity.UserDetails;
+
+@RestController
+@CrossOrigin(origins = "http://localhost:5173")
+@RequestMapping("/api")
+public class UserContoller {
+	@Autowired
+	private Userservice userService;
+	@GetMapping("/test")
+	public String test() {
+		return "api working";
+		
+	}
+	@GetMapping
+	public List<UserDetails> getAll(){
+		return userService.getAlluser();
+	}
+	
+	//register API
+    @PostMapping("/register")
+    public UserDetails register(@RequestBody UserDetails user) {
+        return userService.saveUser(user);
+    }
+    //login API
+    @PostMapping("/login")
+   public ResponseEntity<?> login(@RequestBody Map<String,String> data){
+    	String username=data.get("username");
+    	String password=data.get("password");
+    	String result = userService.login(username,password);
+    	return ResponseEntity.ok(result);
+    }
+}
