@@ -9,7 +9,7 @@ import studentManagement.example.StudentManagement.Service.Userservice;
 import studentManagement.example.StudentManagement.entity.UserDetails;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "https://student-management-system-frontend-mu.vercel.app/")
 @RequestMapping("/api")
 public class UserContoller {
 	@Autowired

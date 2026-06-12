@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import studentManagement.example.StudentManagement.Service.StudentService;
 import studentManagement.example.StudentManagement.entity.StudentDetails;
 
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "https://student-management-system-frontend-mu.vercel.app/")
 @RestController
 @RequestMapping("/students")
 public class StudentContoller {
