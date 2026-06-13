@@ -15,6 +15,8 @@ import studentManagement.example.StudentManagement.entity.UserDetails;
 public class UserContoller {
 	@Autowired
 	private Userservice userService;
+	
+	@Autowired
 	private JwtUtil jwtUtil;
 	@GetMapping("/test")
 	public String test() {
